@@ -6,12 +6,6 @@ public class RollDice : MonoBehaviour
 {
     public Rigidbody Dice;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-    
-    }
-
     public void Roll(InputAction.CallbackContext context)
     {
         // Add a random force and spin to the dice for realistic rolling
@@ -23,11 +17,5 @@ public class RollDice : MonoBehaviour
 
         float Rotation = Random.Range(-30, 30);
         Dice.AddTorque(Rotation, Rotation, Rotation);
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        
     }
 }

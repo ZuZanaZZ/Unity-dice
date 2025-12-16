@@ -21,15 +21,40 @@ public class DiceController : MonoBehaviour
     void Update()
     {
         // Raycast explanation: https://www.youtube.com/watch?v=cUf7FnNqv7U
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out RaycastHit hitInfo, 2f))
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.up) * 2f, Color.red);
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out RaycastHit hitInfo1, 2f))
         {
-            Debug.Log("Hit :D");
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 2f, Color.green);
+            Debug.Log("1");
         }
-        else
+        
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.back) * 2f, Color.orange);
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.back), out RaycastHit hitInfo2, 2f))
         {
-            Debug.Log("NOOOO Hit D:"); 
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 2f, Color.red);
+            Debug.Log("2");
+        }
+        
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.left) * 2f, Color.yellow);
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out RaycastHit hitInfo3, 2f))
+        {
+            Debug.Log("3");
+        }
+        
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.right) * 2f, Color.green);
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out RaycastHit hitInfo4, 2f))
+        {
+            Debug.Log("4");
+        }
+        
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 2f, Color.blue);
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out RaycastHit hitInfo5, 2f))
+        {
+            Debug.Log("5");
+        }
+        
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * 2f, Color.violet);
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out RaycastHit hitInfo6, 2f))
+        {
+            Debug.Log("6"); 
         }
     }
 }

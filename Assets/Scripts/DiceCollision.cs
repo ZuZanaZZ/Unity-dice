@@ -12,13 +12,12 @@ public class DiceCollision : MonoBehaviour
         isChecking = true;
 
         // on collision wait till the dice is settled
-        Debug.Log("Detection began");
-        StartCoroutine(WaitCoroutine());
+        StartCoroutine(StopRolling());
     }
 
-    private IEnumerator WaitCoroutine()
+    private IEnumerator StopRolling()
     {
-        // wait until the dice has stop rolling
+        // wait until the dice has stopped rolling
         // waituntil from: https://stackoverflow.com/questions/30056471/how-to-make-the-script-wait-sleep-in-a-simple-way-in-unity
         yield return new WaitUntil(() => Dice.linearVelocity == Vector3.zero) ;
 

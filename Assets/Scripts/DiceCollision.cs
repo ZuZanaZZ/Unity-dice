@@ -1,15 +1,31 @@
+using System.Collections;
 using UnityEngine;
 
 public class DiceCollision : MonoBehaviour
 {
     public Rigidbody Dice;
-    void Update()
+    private bool isChecking = false;
+    void OnCollisionEnter()
     {
-        // if dice is no longer rolling, get number on the face
-        if (Dice.linearVelocity == Vector3.zero){
-            int resultNumber = GetNumber();
-            Debug.Log(resultNumber);
-        }
+        // if collision is already being checked, don't check again
+        if (isChecking) return;
+        isChecking = true;
+
+        // on collision wait till the dice is settled
+        Debug.Log("Detection began");
+        StartCoroutine(WaitCoroutine());
+    }
+
+    private IEnumerator WaitCoroutine()
+    {
+        // wait until the dice has stop rolling
+        // waituntil from: https://stackoverflow.com/questions/30056471/how-to-make-the-script-wait-sleep-in-a-simple-way-in-unity
+        yield return new WaitUntil(() => Dice.linearVelocity == Vector3.zero) ;
+
+        // get the top face of the dice
+        int resultNumber = GetNumber();
+        Debug.Log(resultNumber);
+        isChecking = false;
     }
 
     public int GetNumber()
@@ -36,7 +52,6 @@ public class DiceCollision : MonoBehaviour
             // if the ray hits the ground
             if (Physics.Raycast(dicePosition, faceNumbers[i], out hitInfo, distance))
             {
-                // Debug.DrawRay(dicePosition, directions[i] * distance, Color.red, 0.5f);
                 // return the number on the (opposite) top face
                 return topFaces[i];
             }

@@ -1,9 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 
-public class DiceController : MonoBehaviour
+public class DiceRoll : MonoBehaviour
 {
     public Rigidbody Dice;
     public void Roll(InputAction.CallbackContext context)

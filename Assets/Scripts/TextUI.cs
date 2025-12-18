@@ -12,7 +12,7 @@ public class TextUI : MonoBehaviour
     void Update()
     {
         // transform.position = dice.transform.position + offset;
-        if (dice.resultNumber == -1)
+        if (dice.resultNumber <= 0)
         {
             uiText.text = $"Press spacebar or click to roll the dice!";
         }

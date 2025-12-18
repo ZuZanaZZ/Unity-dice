@@ -1,19 +1,31 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class DiceCollision : MonoBehaviour
 {
     public Rigidbody Dice;
     public int resultNumber = -1;
     private bool isChecking = false;
+    private bool startGame = false;
+
+    public void StartGame(InputAction.CallbackContext context)
+    {
+        // if the dice is already in the air, don't roll again
+        startGame = true;
+    }
+
     void OnCollisionEnter()
     {
-        // if collision is already being checked, don't check again
-        if (isChecking) return;
-        isChecking = true;
+        if (startGame)
+        {
+            // if collision is already being checked, don't check again
+            if (isChecking) return;
+            isChecking = true;
 
-        // on collision wait till the dice is settled
-        StartCoroutine(StopRolling());
+            // on collision wait till the dice is settled
+            StartCoroutine(StopRolling());
+        }
     }
 
     private IEnumerator StopRolling()
@@ -24,7 +36,6 @@ public class DiceCollision : MonoBehaviour
 
         // get the top face of the dice
         resultNumber = GetNumber();
-        Debug.Log(resultNumber);
         isChecking = false;
     }
 

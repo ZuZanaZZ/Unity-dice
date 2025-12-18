@@ -7,7 +7,7 @@
             "id": "da938adc-2113-47c7-9dea-6cb1fbfbc5cd",
             "actions": [
                 {
-                    "name": "Roll",
+                    "name": "Controlls",
                     "type": "Button",
                     "id": "e5ff9105-4f80-466c-bcb3-786de6fdb2c9",
                     "expectedControlType": "",
@@ -24,7 +24,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Roll",
+                    "action": "Controlls",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -35,7 +35,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Roll",
+                    "action": "Controlls",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

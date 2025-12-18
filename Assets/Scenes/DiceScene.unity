@@ -786,7 +786,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 906743443}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 7
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -889,7 +889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiceCollision
   Dice: {fileID: 906743448}
-  resultNumber: 0
+  resultNumber: -1
 --- !u!1 &1221065445
 GameObject:
   m_ObjectHideFlags: 0

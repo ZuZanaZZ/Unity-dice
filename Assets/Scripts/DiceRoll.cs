@@ -11,7 +11,6 @@ public class DiceRoll : MonoBehaviour
     {
         // if the dice is already in the air, don't roll again
         if (inAir) return;
-        
         inAir = true;
         // add a random force and spin to the dice for realistic rolling
         // new input system tutorial: https://www.youtube.com/watch?v=qEtLamo_-_g

@@ -4,6 +4,7 @@ using UnityEngine;
 public class DiceCollision : MonoBehaviour
 {
     public Rigidbody Dice;
+    public int resultNumber = -1;
     private bool isChecking = false;
     void OnCollisionEnter()
     {
@@ -22,7 +23,7 @@ public class DiceCollision : MonoBehaviour
         yield return new WaitUntil(() => Dice.linearVelocity == Vector3.zero) ;
 
         // get the top face of the dice
-        int resultNumber = GetNumber();
+        resultNumber = GetNumber();
         Debug.Log(resultNumber);
         isChecking = false;
     }

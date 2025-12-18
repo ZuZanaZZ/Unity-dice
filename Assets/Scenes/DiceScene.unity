@@ -381,9 +381,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e16a1061f3450f48bd3ea9cfc02e071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  target: {fileID: 906743447}
-  smoothTime: 0.5
-  offset: {x: 0, y: 1.5, z: -4}
+  dice: {fileID: 906743447}
+  smoothTime: 0.125
+  offset: {x: 0, y: 3, z: -4}
   velocity: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
 GameObject:
@@ -877,6 +877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiceCollision
   Dice: {fileID: 906743448}
+  resultNumber: 0
 --- !u!1 &1221065445
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,6 +968,7 @@ GameObject:
   - component: {fileID: 1375173739}
   - component: {fileID: 1375173741}
   - component: {fileID: 1375173740}
+  - component: {fileID: 1375173742}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -990,7 +992,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -121.39996, y: 77}
+  m_AnchoredPosition: {x: -172, y: 77}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1375173740
@@ -1013,7 +1015,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Your number is 6!
+  m_text: Press spacebar or click to roll the dice!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 28fa449ac309d914d9b688397e045027, type: 2}
   m_sharedMaterial: {fileID: 7258715252130048445, guid: 28fa449ac309d914d9b688397e045027, type: 2}
@@ -1079,7 +1081,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -239.82251, w: -31.226898}
+  m_margin: {x: 0, y: 0, z: -349.39676, w: -31.226898}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1093,14 +1095,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375173738}
   m_CullTransparentMesh: 1
+--- !u!114 &1375173742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375173738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0c42b53330d646409beed81a897db5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  dice: {fileID: 906743452}
+  offset: {x: 0, y: 275, z: 0}
+  uiText: {fileID: 1375173740}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 330585546}
   - {fileID: 410087041}
+  - {fileID: 906743447}
   - {fileID: 832575519}
   - {fileID: 67940968}
-  - {fileID: 906743447}
   - {fileID: 1221065448}
   - {fileID: 711200804}

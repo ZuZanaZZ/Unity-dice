@@ -4,12 +4,12 @@ using UnityEngine.InputSystem;
 
 public class DiceCollision : MonoBehaviour
 {
-    public Rigidbody Dice;
+    public Rigidbody dice;
     public int resultNumber = -1;
     public bool isChecking = false;
     private bool startGame = false;
     public AudioSource audioSource;
-    public AudioClip DiceRollAudio;
+    public AudioClip diceRollAudio;
 
     void Start()
         {
@@ -18,13 +18,13 @@ public class DiceCollision : MonoBehaviour
 
     public void StartGame(InputAction.CallbackContext context)
     {
-        // if the dice is already in the air, don't roll again
+        // start game upon spacebar press/click
         startGame = true;
     }
 
     void OnCollisionEnter()
     {
-        // preventing premature detection of rolled number
+        // preventing premature detection of a rolled number
         if (startGame)
         {
             // if collision is already being checked, don't check again
@@ -40,16 +40,15 @@ public class DiceCollision : MonoBehaviour
     {
         // wait until the dice has stopped rolling
         // waituntil from: https://stackoverflow.com/questions/30056471/how-to-make-the-script-wait-sleep-in-a-simple-way-in-unity
-        yield return new WaitUntil(() => Dice.linearVelocity == Vector3.zero) ;
+        yield return new WaitUntil(() => dice.linearVelocity == Vector3.zero) ;
 
         // play audio and get the top face of the dice
-        audioSource.PlayOneShot(DiceRollAudio, 1);
-
+        audioSource.PlayOneShot(diceRollAudio, 1);
         resultNumber = GetNumber();
         isChecking = false;
     }
 
-    public int GetNumber()
+    private int GetNumber()
     {
         // raycast explanation: https://www.youtube.com/watch?v=cUf7FnNqv7U
         Vector3 dicePosition = transform.position;

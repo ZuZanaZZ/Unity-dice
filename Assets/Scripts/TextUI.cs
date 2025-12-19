@@ -9,17 +9,19 @@ public class TextUI : MonoBehaviour
     public Vector3 offset;
     public TextMeshProUGUI uiText;
 
-    // Update is called once per frame
     void Update()
     {
+        // before starting the game, display the instructions
         if (diceCollision.resultNumber == -1)
         {
             uiText.text = $"Press spacebar or click to roll the dice!";
         }
-        else if (diceCollision.isChecking || diceRoll.rolling)
+        // when the dice is rolling or the result being checked, display rolling...
+        else if (diceRoll.rolling || diceCollision.isChecking)
         {
             uiText.text = $"Rolling...";
         }
+        // display the result of the roll
         else
         {
             uiText.text = $"You rolled {diceCollision.resultNumber}!";

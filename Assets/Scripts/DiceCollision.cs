@@ -8,6 +8,13 @@ public class DiceCollision : MonoBehaviour
     public int resultNumber = -1;
     private bool isChecking = false;
     private bool startGame = false;
+    public AudioSource audioSource;
+    public AudioClip DiceRollAudio;
+
+    void Start()
+        {
+            audioSource = gameObject.GetComponent<AudioSource>();
+        }
 
     public void StartGame(InputAction.CallbackContext context)
     {
@@ -34,7 +41,10 @@ public class DiceCollision : MonoBehaviour
         // waituntil from: https://stackoverflow.com/questions/30056471/how-to-make-the-script-wait-sleep-in-a-simple-way-in-unity
         yield return new WaitUntil(() => Dice.linearVelocity == Vector3.zero) ;
 
-        // get the top face of the dice
+        // play audio and get the top face of the dice
+        // audio from: https://docs.unity3d.com/ScriptReference/AudioSource.PlayOneShot.html
+        audioSource.PlayOneShot(DiceRollAudio, 1);
+
         resultNumber = GetNumber();
         isChecking = false;
     }

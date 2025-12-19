@@ -4,7 +4,7 @@ public class CameraFollow : MonoBehaviour
 {
     // smooth camera follow from: https://www.youtube.com/watch?v=MFQhpwc6cKE
     public Transform dice;
-    public float smoothTime = 0.5f;
+    public float smoothTime;
     public Vector3 offset;
     public Vector3 velocity = Vector3.zero;
     

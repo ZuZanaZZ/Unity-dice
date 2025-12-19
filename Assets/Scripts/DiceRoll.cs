@@ -7,6 +7,7 @@ public class DiceRoll : MonoBehaviour
 {
     public Rigidbody Dice;
     private bool canRoll = true;
+    public bool rolling = false;
 
     public void Roll(InputAction.CallbackContext context)
     {
@@ -14,6 +15,7 @@ public class DiceRoll : MonoBehaviour
 
         // if the dice is ready to roll aplly forces
         canRoll = false;
+        rolling = true;
 
         // add a random force and spin to the dice for realistic rolling
         // new input system tutorial: https://www.youtube.com/watch?v=qEtLamo_-_g
@@ -25,15 +27,20 @@ public class DiceRoll : MonoBehaviour
         float Rotation = Random.Range(-300, 300);
         Dice.AddTorque(Rotation, Rotation, Rotation);
 
-        StartCoroutine(StopFlying());
+        StartCoroutine(RollingDelay());
     }
 
-    private IEnumerator StopFlying()
+    private IEnumerator RollingDelay()
     {
         // wait to prevent spamming of roll
         yield return new WaitForSecondsRealtime(0.5f);
 
         // reset flag
         canRoll = true;
+    }
+
+    void OnCollisionEnter()
+    {
+        rolling = false;
     }
 }

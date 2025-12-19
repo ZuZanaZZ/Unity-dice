@@ -6,7 +6,7 @@ public class DiceCollision : MonoBehaviour
 {
     public Rigidbody Dice;
     public int resultNumber = -1;
-    private bool isChecking = false;
+    public bool isChecking = false;
     private bool startGame = false;
     public AudioSource audioSource;
     public AudioClip DiceRollAudio;
@@ -24,6 +24,7 @@ public class DiceCollision : MonoBehaviour
 
     void OnCollisionEnter()
     {
+        // preventing premature detection of rolled number
         if (startGame)
         {
             // if collision is already being checked, don't check again
@@ -42,7 +43,6 @@ public class DiceCollision : MonoBehaviour
         yield return new WaitUntil(() => Dice.linearVelocity == Vector3.zero) ;
 
         // play audio and get the top face of the dice
-        // audio from: https://docs.unity3d.com/ScriptReference/AudioSource.PlayOneShot.html
         audioSource.PlayOneShot(DiceRollAudio, 1);
 
         resultNumber = GetNumber();

@@ -382,7 +382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   dice: {fileID: 906743447}
-  smoothTime: 0.1
+  smoothTime: 0.05
   offset: {x: 0, y: 2.5, z: -4}
   velocity: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039

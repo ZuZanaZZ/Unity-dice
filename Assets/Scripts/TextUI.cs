@@ -7,10 +7,21 @@ public class TextUI : MonoBehaviour
     public DiceCollision diceCollision;
     public DiceRoll diceRoll;
     public Vector3 offset;
+    public Transform diceTransform;
     public TextMeshProUGUI uiText;
 
-    void Update()
+    // camera initialization from: https://www.youtube.com/watch?v=Fw3uQmx-46M
+    [SerializeField] private Camera mainCamera;
+
+    void Awake()
     {
+        mainCamera = Camera.main;
+    }
+
+    void LateUpdate()
+    {
+        transform.position = diceTransform.position + offset;
+
         // before starting the game, display the instructions
         if (diceCollision.resultNumber == -1)
         {

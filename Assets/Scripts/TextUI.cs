@@ -23,7 +23,7 @@ public class TextUI : MonoBehaviour
         // before starting the game, display the instructions
         if (diceCollision.resultNumber == -1)
         {
-            uiText.text = $"Press spacebar or click to roll the dice!";
+            uiText.text = $"Press space or click to roll! Press x for reset.";
         }
         // when the dice is rolling or the result being checked, display rolling...
         else if (diceRoll.rolling || diceCollision.isChecking)

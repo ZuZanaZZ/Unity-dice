@@ -16,6 +16,12 @@ public class DiceCollision : MonoBehaviour
             audioSource = gameObject.GetComponent<AudioSource>();
         }
 
+    public void ResetPosition(InputAction.CallbackContext context)
+    {
+        startGame = false;
+        resultNumber = -1;
+    }
+
     // start game upon spacebar press/click
     public void StartGame(InputAction.CallbackContext context)
     {

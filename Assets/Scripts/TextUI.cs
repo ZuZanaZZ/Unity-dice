@@ -9,8 +9,6 @@ public class TextUI : MonoBehaviour
     public Vector3 offset;
     public Transform diceTransform;
     public TextMeshProUGUI uiText;
-
-    // camera initialization from: https://www.youtube.com/watch?v=Fw3uQmx-46M
     [SerializeField] private Camera mainCamera;
 
     void Awake()

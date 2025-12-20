@@ -16,9 +16,9 @@ public class DiceCollision : MonoBehaviour
             audioSource = gameObject.GetComponent<AudioSource>();
         }
 
+    // start game upon spacebar press/click
     public void StartGame(InputAction.CallbackContext context)
     {
-        // start game upon spacebar press/click
         startGame = true;
     }
 
@@ -39,7 +39,6 @@ public class DiceCollision : MonoBehaviour
     private IEnumerator StopRolling()
     {
         // wait until the dice has stopped rolling
-        // waituntil from: https://stackoverflow.com/questions/30056471/how-to-make-the-script-wait-sleep-in-a-simple-way-in-unity
         yield return new WaitUntil(() => dice.linearVelocity == Vector3.zero) ;
 
         // play audio and get the top face of the dice
@@ -49,8 +48,7 @@ public class DiceCollision : MonoBehaviour
     }
 
     private int GetNumber()
-    {
-        // raycast explanation: https://www.youtube.com/watch?v=cUf7FnNqv7U
+    {        
         Vector3 dicePosition = transform.position;
         float distance = 2f;
         RaycastHit hitInfo;

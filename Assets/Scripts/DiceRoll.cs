@@ -13,11 +13,10 @@ public class DiceRoll : MonoBehaviour
     {
         if (!canRoll) return;
 
-        // if the dice is ready to roll aplly forces for rolling
+        // if the dice is ready to roll apply forces for rolling
         canRoll = false;
         rolling = true;
 
-        // new input system tutorial: https://www.youtube.com/watch?v=qEtLamo_-_g
         float xForce = Random.Range(-300, 300);
         float yForce = Random.Range(2000 , 3000);
         float zForce = Random.Range(-300, 300);

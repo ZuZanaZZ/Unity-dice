@@ -31,7 +31,7 @@
 ## Rolling mechanic
 - The forces and torque is applied either upon pressing the spacebar, or left clicking. The forces are varies between rolls, and there is a cooldown applied to prevent the spamming of the rolling mechanic.
 - For collision detection, the Unity physics engine is used, together with the Rigidbody component of the dice.
-- After the dice settles down after rolling, denoted by the velocity reaching 0, the detection of the result begins.
+- After the dice settles down after rolling, denoted by the velocity reaching 0, a sound is played and the detection of the result begins.
 
 ![DiceRolling](https://github.com/user-attachments/assets/74624d4b-e9be-47af-83fc-7e6e05f5ed61)
 

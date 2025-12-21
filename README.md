@@ -32,6 +32,9 @@
 - The forces and torque is applied either upon pressing the spacebar, or left clicking. The forces are varies between rolls, and there is a cooldown applied to prevent the spamming of the rolling mechanic.
 - For collision detection, the Unity physics engine is used, together with the Rigidbody component of the dice.
 - After the dice settles down after rolling, denoted by the velocity reaching 0, the detection of the result begins.
+
+![DiceRolling](https://github.com/user-attachments/assets/8dd50ab3-f982-414d-94b4-ee8efe804ace)
+
 ## Face detection
 - The face detections is implemented using raycasts.
 - The face hitting the ground is identified, and the value of the opposite face is returned as the result of the roll. 

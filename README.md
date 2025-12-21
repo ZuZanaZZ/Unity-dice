@@ -33,7 +33,7 @@
 - For collision detection, the Unity physics engine is used, together with the Rigidbody component of the dice.
 - After the dice settles down after rolling, denoted by the velocity reaching 0, the detection of the result begins.
 
-![DiceRolling](https://github.com/user-attachments/assets/8dd50ab3-f982-414d-94b4-ee8efe804ace)
+![DiceRolling](https://github.com/user-attachments/assets/74624d4b-e9be-47af-83fc-7e6e05f5ed61)
 
 ## Face detection
 - The face detections is implemented using raycasts.

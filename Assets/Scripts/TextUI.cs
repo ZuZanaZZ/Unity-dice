@@ -20,15 +20,15 @@ public class TextUI : MonoBehaviour
     {
         transform.position = diceTransform.position + offset;
 
-        // before starting the game, display the instructions
-        if (diceCollision.resultNumber == -1)
-        {
-            uiText.text = $"Press space or click to roll! Press x for reset.";
-        }
         // when the dice is rolling or the result being checked, display rolling...
-        else if (diceRoll.rolling || diceCollision.isChecking)
+        if (diceRoll.rolling || diceCollision.isChecking)
         {
             uiText.text = $"Rolling...";
+        }
+        // before starting the game, display the instructions
+        else if (diceCollision.resultNumber == -1)
+        {
+            uiText.text = $"Press space or click to roll! Press x for reset.";
         }
         // display the result of the roll
         else
